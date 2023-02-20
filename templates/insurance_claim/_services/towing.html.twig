@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}	
+	{{parent()}}
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"/>
+	{{encore_entry_link_tags('map-css')}}
+{% endblock %}
+
+{% block title %}Assistance{% endblock %}
+
+{% block body %}
+	<!-- Section Towing -->
+	<section>
+		<h1 class="mt-5 pt-3 ps-2">Remorquage automobile</h1>
+		<p class="ps-2"> Veuillez choisir le service de remorquage le plus proche de votre emplacement :</p>
+		<div id="map"></div>
+		<p class="mt-2 ps-2"> Veuillez cliquer sur le point de repère du service de remoquage le plus proche pour réserver une dépanneuse.</p>
+		<a href="{{path('app_insurance_claim_towing')}}"></a>
+	</section>
+	<!-- End of section Towing -->
+	<!-- Section Modal -->
+	<section>
+		<div class="modal fade" id="modalTowing" tabindex="-1" aria-labelledby="modalTowingLabel" aria-hidden="true">
+  			<div class="modal-dialog">
+    		<div class="modal-content">
+      		<div class="modal-header">
+        		<h5 class="modal-title" id="modalTowingLabel">Vous venez de réserver une dépanneuse</h5>
+        		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      		</div>
+      		<div class="modal-body">
+	  			<p>Elle arrivera à destination dans :</p>
+        		<div class="text-center "id="timer">30:00</div>
+      		</div>
+      		<div class="modal-footer">
+       		 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+      		</div>
+    		</div>
+  			</div>
+		</div>
+	</section>
+{% endblock %}
+{% block javascripts %}
+	{{parent()}}
+	<script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+	{{encore_entry_script_tags('map-towing')}}
+{% endblock %}

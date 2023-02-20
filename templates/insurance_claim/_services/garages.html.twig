@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+	
+{% block stylesheets %}	
+	{{parent()}}
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"/>
+	{{encore_entry_link_tags('map-css')}}
+{% endblock %}
+{% block title %}Services{% endblock %}
+
+{% block body %}
+<!-- Section Services-->
+	<section>
+		<h1 class="mt-5 pt-3 ps-2">Garages de réparation partenaires</h1>
+		<p class="ps-2"> Veuillez choisir le garage le plus proche de votre emplacement :</p>
+		<div id="map"></div>
+		<a href="{{path('app_insurance_claim_garages')}}"></a>
+	</section>
+	<!-- End of section Services -->
+{% endblock %}
+{% block javascripts %}
+	{{parent()}}
+	<script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+	{{encore_entry_script_tags('map-garages')}}
+{% endblock %}
+	
