@@ -16,6 +16,26 @@
 		<a href="{{path('app_insurance_claim_garages')}}"></a>
 	</section>
 	<!-- End of section Services -->
+	<!-- Section Modal -->
+	<section>
+		<div class="modal fade" id="modalGarages" tabindex="-1" aria-labelledby="modalGaragesLabel" aria-hidden="true">
+  			<div class="modal-dialog">
+    		<div class="modal-content">
+      		<div class="modal-header">
+        		<h2 class="modal-title h5" id="modalGaragesLabel">Vous avez demandé à être contacté par notre garage</h2>
+        		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      		</div>
+      		<div class="modal-body">
+	  			<p>Nous allons vous contacter dans:</p>
+        		<div class="text-center "id="timer2">30:00</div>
+      		</div>
+      		<div class="modal-footer">
+       		 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+      		</div>
+    		</div>
+  			</div>
+		</div>
+	</section>
 {% endblock %}
 {% block javascripts %}
 	{{parent()}}

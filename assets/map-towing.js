@@ -43,7 +43,6 @@ const modalTowing = document.getElementById('modalTowing');
 
 modalTowing.addEventListener('shown.bs.modal', function () {
   let temps = 30 * 60;
-  console.log('coucou');
   const timerElement = document.getElementById('timer');
   function countDown() {
     let minutes = parseInt(temps / 60, 10);
