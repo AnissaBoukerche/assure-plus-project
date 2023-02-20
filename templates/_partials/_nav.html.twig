@@ -1,0 +1,45 @@
+{% block header %}
+<!-- Navbar -->
+	<nav class="navbar navbar-expand-lg fixed-top navbar-white bg-light " aria-label="Fifth navbar example">
+		<div class="container-fluid gy-2">
+			<a class="navbar-brand justify-content-between" href="{{path('app_insurance_claim_index')}}">
+				<img src="{{asset('images/logo-header.png')}}" alt="logo-assure-plus" width="30" height="30">
+				<span class="h4 ms-2">AssurePlus</span>
+			</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+					<li class="nav-item me-2">
+						<a class="nav-link border border-dark rounded-3 text-dark"  href="{{path('umbrella_admin_login')}}">Espace Admin</a>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle border border-danger rounded-3 text-danger" href="#" data-bs-toggle="dropdown" aria-expanded="false">Services et assistance</a>
+						<ul class="dropdown-menu">
+							<li>
+								<a class="dropdown-item" href="{{path('app_insurance_claim_garages')}}">Garages de réparation partenaires</a>
+							</li>
+							<li>
+								<a class="dropdown-item" href="{{path('app_insurance_claim_towing')}}">Remorquage automobile</a>
+							</li>
+						</ul>
+					</li>
+					{% if app.user %}
+						<li class="nav-item">
+							<a class="nav-link border border-primary rounded-3 text-primary  ms-2" href="{{path('app_user_index')}}">Mon compte</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link text-dark" href="{{path('app_logout')}}">Déconnexion</a>
+						</li>
+					{% else %}
+						<li class="nav-item ms-2">
+							<a class="nav-link border border-primary rounded-3 text-primary" href="{{path('app_login')}}">Espace Client</a>
+						</li>
+					</ul>
+				{% endif %}
+			</div>
+		</div>
+	</nav>
+	<!-- End of navbar -->
+{% endblock %}

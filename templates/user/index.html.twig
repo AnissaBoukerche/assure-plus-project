@@ -1,0 +1,83 @@
+{% extends 'base.html.twig' %}
+{% block title %}Profil de {{ app.user.firstName }}  {{ app.user.lastName }} {% endblock %}
+
+{% block body %}
+	<div class="container-fluid mt-4">
+		<div class="row">
+			<div class="mt-5">
+				<div class="col-sm mb-3">
+					<h1>Profil d'
+					{{ app.user.firstName }} {{ app.user.lastName }} 
+					</h1>
+			</div>
+			</div>
+			<div class="w-100"></div>
+			<div class="col-sm">
+				Nom :
+			</div>
+			<div
+				class="col-sm"> {{ app.user.lastName }} 
+			</div>
+			<div class="w-100"></div>
+			<div class="col-sm">
+				Prénom :
+			</div>
+			<div
+				class="col-sm"> {{ app.user.firstName }} 
+			</div>
+			<div class="w-100"></div>
+			<div class="col-sm">
+				Email :
+			</div>
+			<div
+				class="col-sm"> {{ app.user.email }} 
+			</div>
+		</div>
+		<div class="w-100"></div>
+		<div class="col-sm mt-3 mb-5">
+			<a href="{{path('app_user_edit')}}" class="btn btn-primary">Modifier le profil</a>
+		</div>
+	</div>
+	<div class="container-fluid mt-2">
+		<div class="row">
+			<div class="col-sm">
+				<h1>Déclarations de sinistres d'
+					{{ app.user.firstName }} {{ app.user.lastName }} ({{app.user.insuranceClaim|length}})  
+				</h1>
+			</div>
+			<div class="w-100"></div>
+		{% for insuranceClaim in app.user.insuranceClaim %}
+			<table class="table ms-2 mb-5">
+				<thead>
+					<tr>
+						<th>Date de la création du dossier</th>
+						<th>Date du sinistre</th>
+						<th>Lieu du sinistre</th>
+						<th>Circonstances détaillées du sinistre</th>
+						<th>Dégâts constatés sur le véhicule</th>
+						<th>Numéro du contrat d'assurance</th>
+						<th>Modèle du véhicule</th>
+						<th>Numéro d'immatriculation du véhicule</th>
+						<th>Lieu où se trouve le véhicule actuellement</th>
+						<th class="text-danger">Statut de traitement de dossier <br/> - Colonne réservée à l'assurance</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>{{insuranceClaim.createdAt|date('d/m/Y')}}</td>
+						<td>{{insuranceClaim.dateOfTheLoss|date('d/m/Y')}}</td>
+						<td>{{insuranceClaim.place}}</td>
+						<td>{{insuranceClaim.natureOfTheClaim}}</td>
+						<td>{{insuranceClaim.natureOfTheDamages}}</td>
+						<td>{{insuranceClaim.contractNumber}}</td>
+						<td>{{insuranceClaim.vehicleModel}}</td>
+						<td>{{insuranceClaim.vehicleRegistrationNumber}}</td>
+						<td>{{insuranceClaim.vehicleLocation}}</td>
+						<td>{{insuranceClaim.status}}</td>
+					</tr>
+				</tbody>
+			</table>
+		{% endfor %} 
+		</div>
+	</div>
+{% endblock %}

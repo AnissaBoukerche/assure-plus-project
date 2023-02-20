@@ -1,0 +1,18 @@
+{% block footer %}
+	<!-- Footer -->
+	<footer class="footer bg-light mt-auto py-3 my-4">
+			<ul class="nav justify-content-center border-bottom pb-3 mb-3">
+				<li class="nav-item ">
+					<a href="{{path('app_insurance_claim_index')}}" class="nav-link px-2 text-dark">AssurePlus</a>
+				</li>
+				<li class="nav-item">
+					<a href="{{path('app_insurance_claim_new')}}" class="nav-link px-2 text-dark">Déclarer un sinistre</a>
+				</li>
+				<li class="nav-item">
+					<a href="{{path('app_insurance_claim_garages')}}" class="nav-link px-2 text-dark">Services et assistance</a>
+				</li>
+			</ul>
+			<p class="text-center text-dark">© 2023 AssurePlus, Inc</p>
+	</footer>
+	<!-- End of footer -->
+{% endblock %}
