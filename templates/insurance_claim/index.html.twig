@@ -1,0 +1,101 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+<!--Main content-->
+	<main class="col-12">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-12">
+					<section class="w-100">
+						<!-- Jumbotron -->
+						<div class="cover text-center border border-primary rounded-3 py-5" >
+							<img class="img-fluid"src="{{asset('images/logo-assure-plus.png')}}" alt="">
+  							<div class="mask" style="background-color: rgba(0, 0, 0, 0);">
+   							<div class="d-flex justify-content-center align-items-center h-100">
+      						<div class="text-dark bg-white">
+       							 <h1 class="mb-3">Vous devez établir une déclaration de sinistre ?</h1>
+       							 <h2 class="mb-3">Rien de plus simple !</h2>
+        							<a class="btn btn-outline-danger btn-lg mt-3" href="{{ path('app_insurance_claim_new') }}" role="button">Déclarer un sinistre</a>
+     						</div>
+    						</div>
+  							</div>
+						</div>
+						<!-- Jumbotron -->	
+					</section>
+
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-12">
+				<!-- Section About-us -->
+					<section class="about-us">
+						<h3 class="h2 text-center border border-primary rounded-3 my-5">Pourquoi choisir AssurePlus?</h3>
+						<div class="card-group border border-primary rounded-3">
+  							<div class="card">
+    							<img src="{{asset('images/about-us-full-cover.jpg')}}" class="card-img-top" alt="parapluie protégeant une voiture">
+    						<div class="card-body">
+      							<h4 class="card-title">Une couverture complète</h4>
+      							<p class="card-text">AssurePlus peut offrir une couverture complète pour votre véhicule, incluant une protection en cas de dommages causés à des tiers, ainsi qu'une protection pour votre propre véhicule en cas de dommages causés par un accident ou un incendie.</p>
+    						</div>
+    					    </div>
+    						<div class="card">
+    							<img src="{{asset('images/about-us-insurance-warranty.jpg')}}" class="card-img-top" alt="...">
+    						<div class="card-body">
+      							<h4 class="card-title">Des garanties supplémentaires</h4>
+      							<p class="card-text">Outre les garanties standard, AssurePlus peut offrir des garanties supplémentaires telles que l'assistance en cas de panne ou de sinistre, ou une garantie pour les accessoires du véhicule.</p>
+    						</div>
+  							</div>
+  							<div class="card">
+    							<img src="{{asset('images/about-us-subscription.jpg')}}" class="card-img-top" alt="...">
+    						<div class="card-body">
+      							<h4 class="card-title">Un processus de souscription simple</h4>
+      							<p class="card-text">AssurePlus peut offrir un processus de souscription simple et rapide, vous permettant de souscrire à une assurance automobile en quelques minutes.</p>
+    						</div>
+  							</div>
+						</div>
+					</section>
+					<!-- End of section About-us -->
+				</div>
+			</div>
+	
+			<div class="row">
+				<div class="col-12">
+				<!-- Section News -->
+					<section class="news">
+						<h3 class="h2 text-center border border-primary rounded-3 my-5">Actualités</h3>
+						<div class="card-group border border-primary rounded-3">
+							<div class="card">
+								<img class="card-img-top" src="{{asset('images/news-traffic-laws.jpg')}}" alt="feu de circulation pour vélo">
+							<div class="card-body">
+								<h4 class="card-title text-center mb-4">Nouveau code de la route : ce que vous devez savoir pour rester en sécurité</h4>
+								<p class="card-text">Les constructeurs automobiles développent constamment de nouvelles technologies pour améliorer la sécurité sur les routes.</p>
+								<p> Voici les points clés que vous devez connaître pour rester en sécurité sur la route :</p>
+								<p>- La vitesse maximale autorisée sur les routes secondaires a été réduite à 80 km/h.
+								- Les conducteurs sont désormais tenus de laisser une distance minimale de sécurité de 50 mètres derrière les poids lourds sur autoroutes et routes à grande circulation.<br/>
+								- Les cyclistes peuvent maintenant rouler en formation de deux sur les pistes cyclables et les routes à faible circulation.<br/></p>
+							</div>
+							</div>
+							<div class="card">
+							<div class="card-body">
+								<h4 class="card-title text-center">Nouvelles technologies de sécurité pour les véhicules: comment elles peuvent vous protéger</h4>
+								<p class="card-text"> Voici quelques exemples de ces innovations qui peuvent vous protéger en cas de collision ou d'accident :</p>
+								<p>- Les systèmes de freinage automatique : ceux-ci peuvent détecter les obstacles sur la route et freiner automatiquement pour éviter une collision.<br/>
+								- Les alertes de sortie de voie : ces systèmes peuvent alerter le conducteur s'il se dirige involontairement vers une autre voie.</p>
+								<p> En tant qu'assureur automobile, chez AssurePlus, nous soutenons nos clients en leur offrant des garanties qui incluent ces technologies de sécurité les plus récentes.</p>
+							</div>
+								<img class="card-img-bottom" src="{{asset('images/news-safety.jpg')}}" alt="conducteur avec ceinture de sécurité">
+							</div>
+						</div>
+					</section>
+					<!-- End of section News -->
+				</div>
+			</div>
+    	</div>
+	</main>
+<!--End of main content-->
+
+
+{% endblock %} 

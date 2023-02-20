@@ -1,0 +1,76 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Déclarer un sinistre{% endblock %}
+
+{% block body %}
+	<div class="mt-5 ps-2">
+		<h1 class="mt-3">Déclarer un sinistre</h1>
+	{{ form_start(form) }}
+	{{ form_row(form.dateOfTheLoss,{'class': 'form-control', type:'date'}) }}
+	{{ form_row(form.place) }}
+	{{ form_row(form.natureOfTheClaim) }}
+	{{ form_row(form.natureOfTheDamages) }}
+	{{ form_row(form.contractNumber) }}
+	{{ form_row(form.vehicleModel) }}
+	{{ form_row(form.vehicleRegistrationNumber) }}
+	{{ form_row(form.vehicleLocation)}}
+	</div>
+	<div class="ps-2">
+		<label>Photos du sinistre (ajouter une photo à la fois) :</label>
+		<ul id="images-fields-list" data-prototype="{{ form_widget(form.insuranceClaimImages.vars.prototype)|e }}" data-widget-tags="{{ '<li></li>'|e }}" data-widget-counter="{{ form.insuranceClaimImages|length }}">
+			{% for imageField in form.insuranceClaimImages %}
+				<li>
+					{{ form_errors(imageField) }}
+					{{ form_widget(imageField) }}
+				</li>
+			{% endfor %}
+		</ul>
+		<button type="button" class="add-another-collection mb-3" data-list-selector="#images-fields-list">Ajouter une image
+		</button>
+	</div>
+	<input class="btn btn-primary" type='submit' value="Lancer la déclaration">
+	{{ form_end(form) }}
+
+	<a href="{{ path('app_insurance_claim_index') }}" class="btn btn-secondary">Retour à la page d'accueil</a>
+{% endblock %}
+
+{% block javascripts %}
+	{{parent()}}
+	<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+	<script>
+		$('.js-input-date').flatpickr({
+			dateFormat: 'Y.m.d',
+			locale: {firstDayOfWeek: 1,
+			weekdays: {
+				shorthand: ['Lun','Mar','Mer','Jeu','Ven','Sam','Dim'],
+				longhand: ['Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi','Dimanche']
+			},
+			months: {
+				shorthand: ['Jan','Fév','Mar','Avr','Mai','Jui','Juil','Août','Sept','Oct','Nov','Déc'],
+				longhand: ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre']
+			}
+		}
+	</script>
+	<script type="text/javascript">
+		jQuery(document).ready(function () {
+			jQuery('.add-another-collection').click(function (e) {
+				var list = $("#images-fields-list");
+				var counter = list.data('widget-counter') | list.children().length;
+				var newWidget = list.attr('data-prototype');
+				newWidget = newWidget.replace(/__name__/g, counter);
+				counter++;
+				list.data('widget-counter', counter);
+
+				var newElem = jQuery(list.attr('data-widget-tags')).html(newWidget);
+				newElem.appendTo(list);
+				newElem.append('<a href="#" class="remove-tag" style="color: darkred">Supprimer</a>');
+				$('.remove-tag').click(function (e) {
+				e.preventDefault();
+
+				$(this).parent().remove();
+				});
+			});
+		});
+	</script>
+{% endblock %}
+
