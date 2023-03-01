@@ -14,9 +14,9 @@ To install and set up the app, follow these steps:
 2. Install dependencies:
    composer install
    This will download and install all the required dependencies for the project, including Symfony and the other packages listed in the composer.json file.
-   3.Configure the database:
+3.Configure the database:
    Edit the .env file in the root directory of the project and set the database connection parameters to match your environment.
-3. Run the app :
+4. Run the app :
    symfony server:start
    This will start the Symfony web server and you can access the app in your web browser at http://127.0.0.1:8000/
 
